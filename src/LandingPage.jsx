@@ -79,7 +79,7 @@ export default function LandingPage() {
           <div className="max-w-5xl mx-auto backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8">
 
             <h2 className="text-3xl font-bold text-center mb-8">
-              What You'll Experience
+              What You'll Experience!
             </h2>
 
             <div className="grid md:grid-cols-2 gap-4 text-lg">

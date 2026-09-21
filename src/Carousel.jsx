@@ -94,7 +94,7 @@ export default function Carousel() {
             <SwiperSlide key={index}>
               <div className="overflow-hidden rounded-3xl h-[250px] md:h-[320px]">
 
-                <img src={img} className="  w-full  h-full object-cover"/>
+                <img src={img} className="  w-full h-full object-cover"/>
 
               </div>
             </SwiperSlide>

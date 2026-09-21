@@ -1,4 +1,4 @@
-import hostImage from "./assets/host.png";
+import hostImage from "./assets/Host.png";
 
 export default function Host() {
   return (

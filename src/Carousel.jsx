@@ -4,6 +4,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+import { Images } from "lucide-react";
+
 import img1 from "./assets/ChhathImages/1000255180.jpg";
 import img2 from "./assets/ChhathImages/1000255181.jpg";
 import img3 from "./assets/ChhathImages/1000255182.jpg";
@@ -56,9 +58,13 @@ export default function Carousel() {
 
         <div className="flex justify-between items-center mb-6">
 
-          <h2 className="text-4xl font-bold text-white">
-            📸 Chhath Memories
-          </h2>
+		<div className="flex items-center justify-center gap-3 mb-4">
+		  <Images size={36} className="text-orange-400" />
+
+		  <h3 className="text-2xl md:text-4xl font-bold">
+		    Chhath Memories
+		  </h3>
+		</div>
 
           <span className="text-gray-300">
             {images.length} Photos

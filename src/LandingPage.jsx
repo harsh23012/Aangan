@@ -1,8 +1,9 @@
 
 import bgImage from "./assets/chhath.jpg";
 import Carousel from "./Carousel";
+import { useState } from "react";
 
-import { CheckCircle2, CircleX, Car, HandPlatter, Sunset, Sunrise } from "lucide-react";
+import { CheckCircle2, CircleX, Car, HandPlatter, Sunset, Sunrise, Menu, X } from "lucide-react";
 import {
   FileText,
   Search,
@@ -11,7 +12,9 @@ import {
   CreditCard,
 } from "lucide-react";
 
+
 export default function LandingPage() {
+const [menuOpen, setMenuOpen] = useState(false);
 	return (
 		<div className="relative min-h-screen overflow-hidden text-white">
 			{/* Background */}
@@ -30,60 +33,117 @@ export default function LandingPage() {
 			<div className="relative z-10">
 				{/* Navbar */}
 				<nav className="px-4 md:px-12 py-6">
-					<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+				  <div className="flex items-center justify-between">
 
-						<h1 className="text-3xl md:text-4xl font-bold tracking-widest text-orange-400 text-center md:text-left">
-							AANGAN
-						</h1>
+				    {/* Logo */}
+				    <h1 className="text-3xl md:text-4xl font-bold tracking-widest text-orange-400">
+				      AANGAN
+				    </h1>
 
-						<div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+				    {/* Desktop Menu */}
+				    <div className="hidden md:flex gap-3">
 
-							<button
-								onClick={() =>
-									window.open(
-										"https://forms.gle/NSkR2jXBiQ6T91Bt9",
-										"_blank"
-									)
-								}
-								className="
-		          bg-orange-500
-		          hover:bg-orange-600
-		          px-5
-		          py-3
-		          rounded-2xl
-		          font-semibold
-		          transition
-		          shadow-lg
-		          w-full
-		          sm:w-auto hover:scale-105 transition-all duration-300
-		        "
-							>
-								Apply for a Seat
-							</button>
+				      <button
+				        onClick={() =>
+				          window.open(
+				            "https://forms.gle/NSkR2jXBiQ6T91Bt9",
+				            "_blank"
+				          )
+				        }
+				        className="
+				          bg-orange-500
+				          hover:bg-orange-600
+				          px-5
+				          py-3
+				          rounded-2xl
+				          font-semibold
+				          transition-all
+				          duration-300
+				        "
+				      >
+				        Apply for a Seat
+				      </button>
 
-							<button
-								onClick={() => (window.location.href = "/host")}
-								className="
-		          bg-white/20
-		          hover:bg-white/30
-		          backdrop-blur-md
-		          px-5
-		          py-3
-		          rounded-2xl
-		          font-semibold
-		          w-full
-		          sm:w-auto hover:scale-105 transition-all duration-300
-		        "
-							>
-								Know Your Host
-							</button>
+				      <button
+				        onClick={() => (window.location.href = "/host")}
+				        className="
+				          bg-white/20
+				          hover:bg-white/30
+				          backdrop-blur-md
+				          px-5
+				          py-3
+				          rounded-2xl
+				          font-semibold
+				        "
+				      >
+				        Know Your Host
+				      </button>
 
-						</div>
-					</div>
+				    </div>
+
+				    {/* Mobile Hamburger */}
+					<button
+					  onClick={() => setMenuOpen(!menuOpen)}
+					  className="md:hidden"
+					>
+					  {menuOpen ? <X size={28} /> : <Menu size={28} />}
+					</button>
+
+				  </div>
+
+				  {/* Mobile Menu */}
+				  {menuOpen && (
+				    <div
+				      className="
+				        md:hidden
+				        mt-4
+				        bg-black/40
+				        backdrop-blur-xl
+				        border
+				        border-white/20
+				        rounded-2xl
+				        p-4
+				        flex
+				        flex-col
+				        gap-3
+				      "
+				    >
+				      <button
+				        onClick={() =>
+				          window.open(
+				            "https://forms.gle/NSkR2jXBiQ6T91Bt9",
+				            "_blank"
+				          )
+				        }
+				        className="
+				          bg-orange-500
+				          hover:bg-orange-600
+				          py-3
+				          rounded-xl
+				          font-semibold
+				        "
+				      >
+				        Apply for a Seat
+				      </button>
+
+				      <button
+				        onClick={() => (window.location.href = "/host")}
+				        className="
+				          bg-white/10
+				          hover:bg-white/20
+				          py-3
+				          rounded-xl
+				          font-semibold
+				        "
+				      >
+				        Know Your Host
+				      </button>
+				    </div>
+				  )}
 				</nav>
 
 				{/* Hero Section */}
-				<section className="min-h-[85vh] flex flex-col justify-center items-center text-center px-6">
+				<section className="min-h-[60vh] md:min-h-[85vh] flex flex-col justify-center items-center text-center px-6">
 					<span className="border border-orange-400 px-4 py-2 rounded-full bg-orange-500/10 mb-6">
 						Limited Pilot • Only 5–10 Guests
 					</span>
@@ -369,7 +429,7 @@ export default function LandingPage() {
 										cultural immersion, not a luxury travel package.
 									</p>
 
-									<div className="grid md:grid-cols-2 gap-6">
+									<div className="grid md:grid-cols-2 gap-4">
 
 										<div className="flex items-center gap-3">
 											<CircleX size={18} className="text-red-400" />
@@ -415,45 +475,45 @@ export default function LandingPage() {
 									<h2 className="text-4xl font-bold text-center mb-6 text-green-200">
 										What You Get Instead
 									</h2>
+									
+									<p className="text-center text-gray-300 mb-10 max-w-3xl mx-auto">
+										This experience is for people who value authenticity over luxury,
+										connection over convenience, and culture over tourism.
+									</p>
 
-									<div className="grid md:grid-cols-2 gap-6">
+									<div className="grid md:grid-cols-2 gap-4">
 
-										<div className=" bg-white/5 p-5 rounded-2xl flex items-center gap-3">
+										<div className=" flex items-center gap-3">
 											<CheckCircle2 size={18} className="text-green-400" />
 											<span> Simple but confortable accommodation</span>
 										</div>
 
-										<div className=" bg-white/5 p-5 rounded-2xl flex items-center gap-3">
+										<div className=" flex items-center gap-3">
 											<CheckCircle2 size={18} className="text-green-400" />
 											<span> Homemade vegetarian meals</span>
 										</div>
 
-										<div className=" bg-white/5 p-5 rounded-2xl flex items-center gap-3">
+										<div className=" flex items-center gap-3">
 											<CheckCircle2 size={18} className="text-green-400" />
 											<span>Shared family spaces</span>
 										</div>
 
-										<div className=" bg-white/5 p-5 rounded-2xl flex items-center gap-3">
+										<div className=" flex items-center gap-3">
 											<CheckCircle2 size={18} className="text-green-400" />
 											<span>Rural surroundings</span>
 										</div>
 
-										<div className=" bg-white/5 p-5 rounded-2xl flex items-center gap-3">
+										<div className="flex items-center gap-3">
 											<CheckCircle2 size={18} className="text-green-400" />
 											<span>  A genuine family environment</span>
 										</div>
 
-										<div className=" bg-white/5 p-5 rounded-2xl flex items-center gap-3">
+										<div className="flex items-center gap-3">
 											<CheckCircle2 size={18} className="text-green-400" />
 											<span> Memories That Can't Be Bought</span>
 										</div>
 
 									</div>
-
-									<p className="text-center text-gray-200 mt-8 text-lg">
-										This experience is for people who value authenticity over luxury,
-										connection over convenience, and culture over tourism.
-									</p>
 
 								</div>
 

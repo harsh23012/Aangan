@@ -165,6 +165,20 @@ const [menuOpen, setMenuOpen] = useState(false);
 					<p className="mt-8 text-2xl italic text-orange-300">
 						Come as a guest. Leave as family.
 					</p>
+					
+					<button onClick={() => (window.location.href = "/host")}
+							className="
+								bg-orange-500
+								hover:bg-orange-600
+								px-5
+				     			py-3
+							  rounded-2xl
+								 font-semibold
+								 transition-all
+								 duration-300
+								"      >
+						 Know Your Host
+					 </button>
 
 				</section>
 

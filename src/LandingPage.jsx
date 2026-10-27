@@ -1,7 +1,7 @@
 
 import bgImage from "./assets/chhath.jpg";
 import Carousel from "./Carousel";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { CheckCircle2, CircleX, Car, HandPlatter, Sunset, Sunrise, Menu, X } from "lucide-react";
 import {
@@ -13,7 +13,33 @@ import {
 } from "lucide-react";
 
 
+
 export default function LandingPage() {
+	
+	const chhathTranslations = [
+	  "Chhath Puja",        // English
+	  "छठ पूजा",          // Hindi
+	  "छठि पूजा",         // Maithili
+	  "छठ पूजा",          // Bhojpuri
+	  "છઠ પૂજા",          // Gujarati
+	  "ছট পূজা",          // Bengali
+	  "ਛੱਠ ਪੂਜਾ",        // Punjabi
+	  "ଛଠ ପୂଜା",          // Odia
+	  "చఠ్ పూజ",          // Telugu
+	  "ಚಠ್ ಪೂಜೆ",          // Kannada
+	  "சட் பூஜை"           // Tamil
+	];
+
+	const [currentLang, setCurrentLang] = useState(0);
+
+	useEffect(() => {
+	  const interval = setInterval(() => {
+	    setCurrentLang((prev) => (prev + 1) % chhathTranslations.length);
+	  }, 1000);
+
+	  return () => clearInterval(interval);
+	}, []);
+
 const [menuOpen, setMenuOpen] = useState(false);
 	return (
 		<div className="relative min-h-screen overflow-hidden text-white">
@@ -149,9 +175,14 @@ const [menuOpen, setMenuOpen] = useState(false);
 					</span>
 
 					<h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight max-w-5xl">
-						Experience
-						<span className="text-orange-400"> Chhath Puja </span>
-						with a Local Family in Bihar
+					  Experience
+					  <span
+					    key={currentLang}
+					    className="text-orange-400 inline-block transition-opacity duration-500"
+					  >
+					    {"  "}{chhathTranslations[currentLang]}{"  "}
+					  </span>
+					  with a Local Family in Bihar
 					</h1>
 
 					<p className="mt-6 max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-200 leading-relaxed">
